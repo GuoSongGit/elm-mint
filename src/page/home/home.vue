@@ -4,6 +4,9 @@
             <span slot="left">elm</span>
             <mt-button slot="right">登陆|注册</mt-button>
         </mt-header>
+        <div class="mgtop40">
+            <h3>home界面</h3>
+        </div>
     </div>
 </template>
 <script>
