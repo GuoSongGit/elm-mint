@@ -2,14 +2,32 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import routes from './router/router'
+import VueRouter from 'vue-router'
+import store from './store/index'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+import './style/style.css'
+
+Vue.use(VueRouter)
+Vue.use(MintUI)
+
+const router = new VueRouter({
+  routes
+})
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+// new Vue({
+//   el: '#app',
+//   router,
+//   template: '<App/>',
+//   components: { App }
+// })
 new Vue({
   el: '#app',
+  store,
   router,
-  template: '<App/>',
-  components: { App }
-})
+  render: h => h(App)
+}).$mount('#app')
