@@ -1,11 +1,15 @@
 <template>
     <div>
-       <mt-header title="标题">
+        <mt-header fixed title="标题">
             <span slot="left">elm</span>
             <mt-button slot="right">登陆|注册</mt-button>
         </mt-header>
+
         <div class="mgtop40">
-            <h3>home界面</h3>
+            <div class="after ih50 padlr10 box bgfff">
+                <span>当前选择城市</span>
+                <span class="right fs0-8 col9f">定位不准时,请在城市列表选择</span>
+            </div>
         </div>
     </div>
 </template>
