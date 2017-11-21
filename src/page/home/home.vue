@@ -10,7 +10,12 @@
                 <span>当前选择城市</span>
                 <span class="right fs0-8 col9f">定位不准时,请在城市列表选择</span>
             </div>
+            <mt-cell title="上海" class="col after"></mt-cell>
+            <div class="mgtop10 bgfff">
+                <mt-cell title="热门城市" class="after"></mt-cell>
+            </div>
         </div>
+        
     </div>
 </template>
 <script>
