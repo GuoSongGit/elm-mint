@@ -6,11 +6,13 @@ import routes from './router/router'
 import VueRouter from 'vue-router'
 import store from './store/index'
 import MintUI from 'mint-ui'
+import VueResource from 'vue-resource'
 import 'mint-ui/lib/style.css'
 import './style/style.css'
 
 Vue.use(VueRouter)
 Vue.use(MintUI)
+Vue.use(VueResource)
 
 const router = new VueRouter({
   routes
