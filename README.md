@@ -24,5 +24,5 @@ npm run unit
 npm run e2e
 
 # run all tests
-npm test1
+npm test12
 ```
