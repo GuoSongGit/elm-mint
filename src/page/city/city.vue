@@ -5,18 +5,24 @@
             <mt-button slot="right">切换城市</mt-button>
         </mt-header>
         <div class="mgtop50 bgfff padlr10 padbot10">
-            <input class="cityinput" placeholder="输入商务楼，学校，地址">
-            <div class="submit bgcol ih40">提交</div>
+            <input class="cityinput" placeholder="输入商务楼，学校，地址" v-model="inputval">
+            <div class="submit bgcol ih40" @click="searchcity">提交</div>
         </div>
         <div class="main">
-            <div class="his after">
+            <div v-if="list==''" class="his after">
                 <div class="contenttop fs0-8 padlr10">搜索历史</div>
-                <div class="mainbody bgfff">
+                <div class="mainbody bgfff" v-if="his!=''" v-for="item in his" :key="item.key">
                     <div class="pad10 after">
-                        <div class="ih30">长宁区</div>
-                        <div class="ih30 fs0-8 col9f">长宁区中山公园</div>
+                        <div class="ih30">{{item.name}}</div>
+                        <div class="ih30 fs0-8 col9f">{{item.address}}</div>
                     </div>
-                    <div class="clearall ih30 pad10 col9f">清空所有</div>
+                    <div class="clearall ih30 pad10 col9f"  @click="removeall">清空所有</div>
+                </div>
+            </div>
+            <div class="search bgfff">
+                <div class="pad10 after" @click="goaddress({name:item.name,latitude:item.latitude,longitude:item.longitude,address:item.address,geohash:item.geohash})" v-for="item in list" :key="item.key">
+                    <div class="ih30">{{item.name}}</div>
+                    <div class="ih30 fs0-8 col9f">{{item.address}}</div>
                 </div>
             </div>
         </div>
@@ -26,19 +32,46 @@
 export default {
   data () {
     return {
+      list: '',
+      inputval: '',
+      his: ''
     }
   },
   components: {
     // 注册组件
   },
-  mounted: function () {
-    // 生命周期
-  },
+//   mounted: {
+     // 生命周期
+//   },
   computed: {
     // 计算属性
   },
   methods: {
     // 函数
+    searchcity: function () {
+      this.$http.get('http://cangdu.org:8001/v1/pois?city_id=' + this.$store.state.nowcity.id + '&keyword=' + this.inputval + '&type=search').then(response => {
+        this.list = response.body
+        console.log(response)
+      }, response => {
+        console.log(response)
+      })
+    },
+    goaddress: function (e) {
+      var arr = []
+      if (localStorage.getItem('his')) {
+        arr = JSON.parse(localStorage.getItem('his'))
+        arr.push(e)
+      } else {
+        arr.push(e)
+      }
+      localStorage.setItem('his', JSON.stringify(arr))
+      this.his = JSON.parse(localStorage.getItem('his'))
+      this.his = ''
+    },
+    removeall: function () {
+      localStorage.clear()
+      this.his = ''
+    }
   }
 }
 </script>
