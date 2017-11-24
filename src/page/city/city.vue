@@ -80,7 +80,7 @@ export default {
           arr.unshift(e)
         }
       } else {
-        arr.push(e)
+        arr.unshift(e)
       }
       localStorage.setItem('his', JSON.stringify(arr))
       this.his = JSON.parse(localStorage.getItem('his'))
