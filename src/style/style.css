@@ -2,13 +2,18 @@
     margin: 0;
     padding: 0;
 }
+.mint-tabbar{
+    position: fixed !important;
+}
 .fixed{
     position: fixed;
 }
 .box{
     box-sizing: border-box;
 }
-
+.left{
+    float: left;
+}
 .right{
     float: right;
 }
@@ -39,6 +44,9 @@
 .fs1-2{
     font-size: 1.2rem!important;
 }
+.mgtop5{
+    margin-top: 5px;
+}
 .mgtop10{
     margin-top: 10px;
 }
@@ -47,6 +55,12 @@
 }
 .mgtop50{
     margin-top: 50px;
+}
+.mgtop55{
+    margin-top: 55px;
+}
+.mgleft10{
+    margin-left: 10px;
 }
 .padlr10{
     padding: 0 10px;
