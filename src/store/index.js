@@ -10,7 +10,7 @@ const state = {
   selected: 'miste'
 }
 
-export default ({
+export default new Vuex.Store({
   state,
   actions,
   getters,

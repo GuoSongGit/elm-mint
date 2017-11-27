@@ -26,16 +26,6 @@ export default {
   },
   computed: {
     // 计算属性
-    gopage: function () {
-      return this.$store.state.selected
-    }
-  },
-  watch: {
-    // 事件监听
-    gopage (newval, oldval) {
-      this.$router.push(newval)
-      console.log(newval)
-    }
   },
   methods: {
     // 函数
