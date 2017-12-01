@@ -1,6 +1,6 @@
 # elm-mint
 
-> 用Vue.js以及Mint-ui,简单的实现了Elm程序,本程序中所用到的接口，均来自于【cangdu】大神(https://github.com/bailicangdu/vue2-elm)
+> 用Vue.js以及Mint-ui,简单的实现了Elm程序,本程序中所用到的接口,均来自于【cangdu】大神(https://github.com/bailicangdu/vue2-elm)
 
 ## Build Setup
 
