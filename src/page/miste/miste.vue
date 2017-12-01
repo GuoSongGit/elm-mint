@@ -1,5 +1,6 @@
 <template>
     <div>
+      <load v-if="num!=1"></load>
         <mt-header title="miste" fixed>
             <mt-button slot="left"><mt-button icon="search"></mt-button></mt-button>
             <mt-button slot="right">登陆|注册</mt-button>
@@ -64,6 +65,7 @@
 </template>
 <script>
 import foot from '../../components/foot/foot'
+import load from '../../components/load/load'
 export default {
   data () {
     return {
@@ -71,12 +73,14 @@ export default {
       imgBaseUrl: 'https://fuss10.elemecdn.com',
       imgshopUrl: 'http://cangdu.org:8001/img/',
       shoplist: '',
-      xxclass: 'xxspan2 w'
+      xxclass: 'xxspan2 w',
+      num: 1
     }
   },
   components: {
     // 注册组件
-    foot
+    foot,
+    load
   },
   mounted: function () {
     // 生命周期
@@ -107,6 +111,15 @@ export default {
       this.shoplist = response.body
     }, response => {
       console.log(response)
+    })
+    this.num = this.num - 1
+    this.$http.get('http://cangdu.org:8001/v2/pois/' + this.$store.state.latutude + ',' + +this.$store.state.longitude + '').then(response => {
+      console.log(response)
+      this.cityname = response.body
+      this.num = this.num + 1
+    }, response => {
+      console.log(response)
+      this.num = this.num + 1
     })
   },
   computed: {
